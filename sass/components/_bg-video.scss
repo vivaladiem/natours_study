@@ -1,0 +1,20 @@
+.bg-video {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: .15;
+    z-index: -1;
+    overflow: hidden;
+
+    &__content {
+        height: 100%;
+        width: 100%;
+
+        // [MEMO] 이미지에서 background-size: cover이 있듯이 비디오엔 object-fit이 있다.
+        // cover는 비율을 유지하면서 부모엘리먼트에 채운다. 아예 다 채우려면 height, width 100% 설정.
+        // 넘치는 부분이 있다면 overflow: hidden을 해주면 됨.
+        object-fit: cover;
+    }
+}

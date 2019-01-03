@@ -1,0 +1,76 @@
+.section-about {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0;
+    margin-top: -20vh;
+
+    @include respond(tab-port) {
+        padding: 20rem 0;
+    }
+}
+
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(to right bottom,
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)),
+        url(../../img/nat-4.jpg);
+    background-size: cover;
+
+    transform: skewY(-7deg);
+
+    // [MEMO] skew를 직계자손에게 역으로 줘서 원상태로 만들기.
+    // 직계자손이 아니면 후손 모두에 적용되어 이상해짐.
+    & > * {
+        transform: skewY(7deg);        
+    }
+
+    margin-top: -12rem;
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
+    
+}
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0 15rem 0;
+    margin-top: -12rem;
+
+    @include respond(tab-port) {
+    padding: 20rem 0 10rem 0;
+    }
+}
+
+.section-stories {
+    // [MEMO] 비디오 자체에 opacity를 주는 법이 있고, (강의)
+    // 위에 한 층을 덮어서 반투명한 색을 주는 법이 있겠다. 이 땐 레이어의 투명도는 (100% - 비디오 투명도)
+    // background-color: rgba($color-grey-light-1, .85);
+    padding: 15rem 0;
+    position: relative;
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
+}
+
+.section-book {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
+}
+
+.book {
+    background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 50%, transparent 50%), url(../../img/nat-10.jpg);
+    background-size: cover;
+    height: 50rem;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+    &__form {
+        width: 50%;
+        padding: 6rem;
+    }
+}

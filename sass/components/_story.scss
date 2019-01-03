@@ -1,0 +1,67 @@
+.story {
+    margin: 0 auto;
+    width: 75%;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    transform: skewX(-12deg);
+
+    & > * {
+        transform: skewX(12deg);
+    }
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+
+        // [MEMO] shape-outside -> 주변 텍스트의 배치까지 영향을 준다.
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+    }
+
+    &__img {
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) scale(1.4);
+        // 강의에선 그냥 translate(-4rem);으로 했음. 그리고서 __shape에 backface-visibility: hidden; 하고.
+
+        transition: all .5s;
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        font-size: 1.7rem;
+        text-align: center;
+        text-transform: uppercase;
+        opacity: 0;
+        transition: all .5s;
+
+        // [MEMO] transform을 하고 뭔가 모양이 이상하거나 변한 후 마지막에 좀 틀어진다면 backface-visibility: hidden을 해주면 거의 해결된다.
+        backface-visibility: hidden;
+ 
+    }
+
+    &:hover &__caption {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    &:hover &__img {
+        transform: translateX(-50%) scale(1);
+        
+        // [MEMO] filter
+        filter: blur(3px) brightness(80%);
+    }
+}
